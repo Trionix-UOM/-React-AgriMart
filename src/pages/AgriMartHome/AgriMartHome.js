@@ -43,21 +43,23 @@ export default function AgriMartHome() {
         <div>
         <Carousel autoplay={true} dotPosition='bottom'>
           <div>
-            <img style={{height:'500px', width:'100%', marginTop:'20px', borderRadius:'10px'}} src={category}/>
+            <img style={{height:'500px', width:'100%', marginTop:'20px', borderRadius:'0px'}} src={category}/>
           </div>
           <div>
-            <img style={{height:'500px', width:'100%', marginTop:'20px', borderRadius:'10px'}} src={spice}/>
+            <img style={{height:'500px', width:'100%', marginTop:'20px', borderRadius:'0px'}} src={spice}/>
           </div>
           <div>
-            <img style={{height:'500px', width:'100%', marginTop:'20px', borderRadius:'10px'}} src={veges}/>
+            <img style={{height:'500px', width:'100%', marginTop:'20px', borderRadius:'0px'}} src={veges}/>
           </div>
         
           </Carousel>
           </div>
  
 </div>
-       
+       <div style={{paddingTop:'5px', alignContent:'center', textAlign:'center', fontFamily:'cursive'}}><h5>"Agri Mart" has 100% organic vegetables, fruits, and spices that suit Sri Lankan culture and lifestyle. We motivate our farmers to give us fresh and healthy food so that we can earn our customers' trust.</h5> </div>
     <div>
+
+    <br></br>
       <Link to="/ToProducts">
         <Button  style={{width: "170px",height: "50px", marginLeft:'650px',color:'black', fontWeight:'bolder', borderColor:'#68BB59', fontSize:'22px'}} variant="success">Shop Now</Button>
       </Link>
