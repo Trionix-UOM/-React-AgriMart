@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AgriMartSideBar from './components/AgriMartSideBar/AgriMartSideBar';
+import AdminSideBar from './components/AgriMartSideBar/AgriMartSideBar';
 import AdminDashboard from './pages/AdminDashboard/AdminDashboard';
 import AdminUserManagement from './pages/AdminUserManagement/AdminUserManagement';
 import AdminProductManagement from './pages/AdminProductManagement/AdminProductManagement';
