@@ -77,6 +77,11 @@ function AdminProductManagement(props) {
       });
   };
 
+const handleHide = () => {
+  // Persorms Hide action
+}
+
+
   return (
     <div>
       <div>
@@ -85,10 +90,8 @@ function AdminProductManagement(props) {
 
       <h2 class="txt-header">Product Management</h2>
       <div style={{float:'left', position:'fixed'}}><AgriMartAdminSideBar/></div>
-                <div className="card-container" style={{margin:'0px 100px 0px 210px', position:'relative'}} >
-                    <Tabs type="card">
-                        <TabPane tab="In Stock" key="1">
-                            <div class="table-style">
+                <div className="card-container" style={{margin:'40px 100px 0px 210px', position:'relative'}} >
+                  
 
                                 <Table striped bordered hover>
                                     <thead>
@@ -97,6 +100,7 @@ function AdminProductManagement(props) {
                                             <th>Product Name</th> 
                                             <th>Quantity</th>
                                             <th>Seller</th>
+                                            <th>Availability</th>
                                             <th>Total Price</th>
                                             <th>Action</th>
                                         </tr>
@@ -105,6 +109,7 @@ function AdminProductManagement(props) {
                                           <td>Carrot</td>
                                           <td>25KG</td>
                                           <td>M.T.Silva</td>
+                                          <td>True</td>
                                           <td>Rs.9500</td>
                                           <td><Popconfirm
                         title="Are you sure？"
@@ -113,77 +118,21 @@ function AdminProductManagement(props) {
                             style={{
                               color: 'red',
                             }}
-                            // onOk={() => removeItem(item.id)}
+                            // onOk={() => HideItem(item.id)}
                           />
                         }
-                      ><button className='btn ms-2' >
-                         <DeleteIcon className='deleteicon'/>
-                       </button>
+                      >
+                        <Button style={{backgroundColor:'red', width:'80px', fontWeight:'bold'}}
+                        onClick={handleHide()}
+                        >
+                         Hide
+                       </Button>
                       </Popconfirm></td>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                    {
-                                            data.map((item) => (
-                                                <tr key={item.id}>
-                                                    <td>{(item.orderId ?? "").substring(item.orderId.length - 4).toUpperCase()}</td>
-                                                    {/* <td>{(item.orderId ?? "").substring(0, 4).toUpperCase()}</td> */}
-                                                    <td>{moment(item.orderDateTime).format('LLLL')}</td>
-                                                    <td>{item.productTitle}</td>
-                                                    <td>{item.quantity}</td>
-                                                    <td>{item.amount}</td>
-                                                    <button className='btn btn-primary form-control' style={{color:"black", backgroundColor:"#51bbfc", borderColor:"#51bbfc"}}  type="submit">RTS</button>
-                                                    {/* <td>{item.price}</td> */}
-
-                                                </tr>
-                                            ))
-                                        }
-                                    </tbody>
+                                   
                                 </Table>
 
-                            </div>
-                        </TabPane>
-                        <TabPane tab="Out of Stock" key="2">
-                            <div class="table-style">
-
-                                <Table striped bordered hover>
-                                    <thead>
-                                        <tr>
-                                            <th>Product ID</th>
-                                            <th>Product Name</th>
-                                            <th>Uploaded By</th>
-                                        </tr>
-                                        <tr>
-                                          <td>0002</td>
-                                          <td>Beans</td>
-                                          <td>R.E.Perera</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-
-                                        {/* {
-                                            data.map((item) => ( 
-                                                <tr key={(item.id)}> 
-                                                    <td>{(item.orderId ?? "").substring(0, 4).toUpperCase()}</td>
-                                                    <td>{item.orderDateTime}</td>
-                                                    <td>{item.productTitle}</td>
-                                                    <td>{item.quantity}</td>
-                                                    <td>{item.amount}</td>
-                                                </tr>
-                                            ))
-                                        } */}
-
-
-                                    </tbody>
-                                </Table>
-
-                            </div>
-
-                        </TabPane>
-                        
-                        
-                    </Tabs>
                 </div>
 
       <div>
