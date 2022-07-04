@@ -42,7 +42,6 @@ function OrderTable()
 
 
 
-
 const columns = [
     {
         title: 'Order ID',
@@ -83,10 +82,10 @@ const columns = [
         render: () => (
           <>
           <Button type='primary'
-          style={{width: '80px', backgroundColor:'blue'}}
+          style={{width: '70px', backgroundColor:'blue'}}
           onClick={() => handleAction()}>{'Approve'}</Button>
           <Button type='danger'
-          style={{width: '80px', backgroundColor:'blue'}}
+          style={{width: '70px', backgroundColor:'red'}}
           onClick={() => handleAction()}>{'Decline'}</Button>
           </>
         ),
