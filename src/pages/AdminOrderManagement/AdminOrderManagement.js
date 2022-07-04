@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AgriMartAdminNavBar from '../../components/AgriMartAdminNavBar/AgriMartAdminNavBar';
 import './AdminOrderManagement.css';
 import AgriMartFooter from '../../components/AgriMartFooter/AgriMartFooter';
-import AgriMartAdminSideBar from '../../components/AgriMartSideBar/AgriMartSideBar';
+import AdminSideBar from '../../components/AdminSideBar/AdminSideBar';
 import 'antd/dist/antd.css';
 import { Tabs, Popconfirm } from 'antd';
 import { Button, Table } from 'react-bootstrap';
@@ -48,7 +48,7 @@ function AdminOrderManagement() {
     return (
         <div>
             <div>
-                <AgriMartAdminNavBar />
+                <AdminSideBar />
 
             </div>
             <div>
@@ -56,7 +56,7 @@ function AdminOrderManagement() {
                 <h2 class="txt-header">Order Management</h2>
             </div>
             <div>
-            <div style={{float:'left', position:'fixed'}}><AgriMartAdminSideBar/></div>
+            <div style={{float:'left', position:'fixed'}}><AdminSideBar/></div>
                 <div className="card-container" style={{margin:'0px 100px 0px 210px', position:'relative'}} >
                     <Tabs type="card">
                         <TabPane tab="User ID" key="1">

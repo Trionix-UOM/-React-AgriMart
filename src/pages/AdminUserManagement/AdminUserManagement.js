@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import AgriMartAdminNavBar from '../../components/AgriMartAdminNavBar/AgriMartAdminNavBar';
  import './AdminUserManagement.css';
 import AgriMartFooter from '../../components/AgriMartFooter/AgriMartFooter';
-import AgriMartAdminSideBar from '../../components/AgriMartSideBar/AgriMartSideBar';
+import AdminSideBar from '../../components/AdminSideBar/AdminSideBar';
 import { Table } from "react-bootstrap";
 import { Tabs, Popconfirm } from 'antd';
 import moment from 'moment';
@@ -19,14 +19,14 @@ function AdminUserManagement() {
     return (
         <div>
         <div>
-            <AgriMartAdminNavBar />
+            <AdminSideBar />
 
         </div>
        
         <div>
                 <h2  class="txt-header">User Management</h2>
             </div>
-            <div style={{float:'left', position:'fixed'}}><AgriMartAdminSideBar/></div>
+            <div style={{float:'left', position:'fixed'}}><AdminSideBar/></div>
                 <div className="card-container" style={{margin:'0px 100px 0px 210px', position:'relative'}} >
                     <Tabs type="card">
                         <TabPane tab="Shopper" key="1">

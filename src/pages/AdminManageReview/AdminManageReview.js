@@ -2,7 +2,7 @@ import React from 'react';
 import AgriMartAdminNavBar from '../../components/AgriMartAdminNavBar/AgriMartAdminNavBar';
 import './AdminManageReview.css';
 import AgriMartFooter from '../../components/AgriMartFooter/AgriMartFooter';
-import AgriMartAdminSideBar from '../../components/AgriMartSideBar/AgriMartSideBar';
+import AdminSideBar from '../../components/AdminSideBar/AdminSideBar';
 import { Rate } from 'antd';
 import { AiFillDelete } from "react-icons/ai";
 import { AiOutlineEdit  } from "react-icons/ai";
@@ -183,13 +183,13 @@ function AdminManageReview () {
     return (
         <div>
           <div>
-            <AgriMartAdminNavBar />
+            <AdminSideBar />
 
         </div>
        
         <div className='main'>
                 <h2  class="txt-header">Reviews</h2>
-                <div style={{float:'left', position:'fixed'}}><AgriMartAdminSideBar/></div>
+                <div style={{float:'left', position:'fixed'}}><AdminSideBar/></div>
                 
                 <div className='subMain' style={{margin:'0px 100px 0px 210px', position:'relative'}} >
                 <table class="table table-borderless table-dark">

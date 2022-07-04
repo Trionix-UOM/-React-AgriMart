@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AgriMartAdminNavBar from "../../components/AgriMartAdminNavBar/AgriMartAdminNavBar";
 import "./AdminProductManagement.css";
 import AgriMartFooter from "../../components/AgriMartFooter/AgriMartFooter";
-import AgriMartAdminSideBar from '../../components/AgriMartSideBar/AgriMartSideBar';
+import AdminSideBar from '../../components/AdminSideBar/AdminSideBar';
 import { Table } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -80,11 +80,11 @@ function AdminProductManagement(props) {
   return (
     <div>
       <div>
-        <AgriMartAdminNavBar />
+        <AdminSideBar />
       </div>
 
       <h2 class="txt-header">Product Management</h2>
-      <div style={{float:'left', position:'fixed'}}><AgriMartAdminSideBar/></div>
+      <div style={{float:'left', position:'fixed'}}><AdminSideBar/></div>
                 <div className="card-container" style={{margin:'0px 100px 0px 210px', position:'relative'}} >
                     <Tabs type="card">
                         <TabPane tab="In Stock" key="1">
