@@ -6,7 +6,7 @@ import { BiCog } from "react-icons/bi";
 import { AiOutlineGift, AiTwotoneBank } from "react-icons/ai";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import SidebarMenu from "./SidebarMenu";
+import AdminSidebarMenu from "./AdminSidebarMenu";
 const routes = [
   {
     path: "/usermanagement",
@@ -112,7 +112,7 @@ const AgriMartSideBar = ({ children }) => {
             {routes.map((route, index) => {
               if (route.subRoutes) {
                 return (
-                  <SidebarMenu
+                  <AdminSidebarMenu
                     setIsOpen={setIsOpen}
                     route={route}
                     showAnimation={showAnimation}
