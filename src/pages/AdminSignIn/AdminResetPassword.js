@@ -1,20 +1,15 @@
 import React from 'react'
-import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
 import Admin from '../../resources/images/adminImg.png'
-import { width } from '@mui/system';
 import {Link,useNavigate} from 'react-router-dom';
 
 
-
-  const onFinish = (values) => 
-    console.log('Received values of form: ', values);
   
 
-function AdminSignIn() {
+function AdminResetPassword() {
   
   const navigate = useNavigate();
 
@@ -40,6 +35,7 @@ function AdminSignIn() {
       <Container className='adminDiv' style={{height:'620px', width: '600px', backgroundColor:'#DCDCDC',  borderRadius:'8px'}}>
       <Box sx={{ bgcolor: ' rgb(24, 24, 24', height: '95vh' }}>
         <img style={{marginLeft:'170px'}} src={Admin} width={250} height={250} />
+        <br/><br/>  <br/><br/>
         <Form
       name="basic"
       labelCol={{
@@ -70,13 +66,13 @@ function AdminSignIn() {
       </Form.Item>
 
       <Form.Item
-        label="Password"
+        label="New Password"
         name="password"
         rules={[
           {
             pattern: new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'),
             required: true,
-            message: 'Please input your password!',
+            message: 'New Password',
           },
         ]}
       >
@@ -84,29 +80,24 @@ function AdminSignIn() {
       </Form.Item>
 
       <Form.Item
-        name="remember"
-        valuePropName="checked"
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
+        label="Confirm New Password"
+        name="password"
+        rules={[
+          {
+            pattern: new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'),
+            required: true,
+            message: 'Confirm New Password',
+          },
+        ]}
       >
-        <Checkbox>Remember me</Checkbox>
+        <Input.Password />
+        <br/><br/>   <br/><br/>
       </Form.Item>
-
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Button  type="submit" htmlType="submit"
+        <Button  type="primary" htmlType="submit" style={{marginLeft:'210px'}}
         onClick={navigateFunc}>
-        Submit
-          
-       
+        Reset Password 
         </Button>
-      </Form.Item>
+ 
     </Form>
     </Box>
        
@@ -117,4 +108,4 @@ function AdminSignIn() {
   )
 }
 
-export default AdminSignIn
+export default AdminResetPassword;

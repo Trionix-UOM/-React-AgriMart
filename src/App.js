@@ -15,6 +15,7 @@ import { withCurrentUserContext } from "./context/UserContext";
 
 
 import AdminSignIn from './pages/AdminSignIn/AdminSignIn';
+import AdminResetPassword from './pages/AdminSignIn/AdminResetPassword';
 import AdminDashboard from './pages/AdminDashboard/AdminDashboard';
 import AdminUserManagement from './pages/AdminUserManagement/AdminUserManagement';
 import AdminProductManagement from './pages/AdminProductManagement/AdminProductManagement';
@@ -54,6 +55,7 @@ function App() {
         {/* Routes - Admin Portal */}
         <Route path="/portal" element={<AdminDashboard />} />
         <Route path="/adminSignin" element={<AdminSignIn />} />
+        <Route path="/adminresetpwd" element={<AdminResetPassword />} />
         <Route path="/usermanagement" element={<AdminUserManagement/>} />
         <Route path="/adminproduct" element={<AdminProductManagement />} />
         <Route path="/adminorders" element={<AdminOrderManagement />} />
