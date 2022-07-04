@@ -20,7 +20,7 @@ return(
     <div id="del">
 
 <h3 className="text-left" style={{padding: "20px 0px"}}>Orders are delivered </h3>
-<h3 className="text-left" style={{padding: "20px 0px"}}>Ready to ship </h3>
+
 <table className="table table-striped">
   <thead class="table-light">
     <tr>
