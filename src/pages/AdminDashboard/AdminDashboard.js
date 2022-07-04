@@ -2,9 +2,6 @@ import React from "react";
 import AgriMartAdminNavBar from "../../components/AgriMartAdminNavBar/AgriMartAdminNavBar";
 import "./AdminDashboard.css";
 import AgriMartFooter from "../../components/AgriMartFooter/AgriMartFooter";
-import AdminSidebarMenu from '../../components/AdminSideBar/AdminSidebarMenu';
-import { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import { Progress } from 'antd';
 import { MDBCol } from "mdbreact";
 import { DataGrid } from '@mui/x-data-grid';
@@ -42,14 +39,9 @@ function AdminDashboard() {
       <div style={{float:'left', position:'fixed'}}><AdminSideBar/></div>
       <div className="card-container" style={{margin:'0px 100px 0px 210px', position:'relative'}} >
 
-      <div style={{ width:'600px',marginTop:'10px'}}>
-      <MDBCol md="6">
-      <div  className="active-pink-3 active-pink-4 mb-4">
-        <input className="form-control" type="text" placeholder="Search" aria-label="Search" />
-      </div>
-    </MDBCol></div>
+      
     <div class="container overflow-hidden">
-  <div class="row gx-5">
+  <div class="row">
     <div class="col">
      <div class="p-3 border bg-dark">Top Selling</div>
     </div>
@@ -60,16 +52,13 @@ function AdminDashboard() {
 </div>
 <br/>
 <div class="container overflow-hidden">
-  <div class="row gx-5">
+  <div class="row">
     <div class="col">
      <div class="p-3 border bg-light">
      <div style={{ height: 400, width: '100%' }}>
       <DataGrid
         rows={rows}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        
+        columns={columns} 
       />
     </div>
      </div>
