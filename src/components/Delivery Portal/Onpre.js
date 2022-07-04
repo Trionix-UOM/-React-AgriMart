@@ -20,7 +20,7 @@ function Onpre(){
 return(
     <div id="pre">
 <h3 className="text-left" style={{padding: "20px 0px"}}>Orders are on premise </h3>
-<h3 className="text-left" style={{padding: "20px 0px"}}>Ready to ship </h3>
+
 <table className="table table-striped">
   <thead class="table-light">
     <tr>
