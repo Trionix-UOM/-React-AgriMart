@@ -12,7 +12,7 @@ function AgriMartNavBar() {
                 <Navbar.Brand href="/">
               <Row justify='space-around'>   
                 <Image src={logo} height={80} width={80} />
-                <h3 style={{color:'#e6ffe6', paddingLeft:'20px'}}>Agri Mart  </h3> 
+                <h3 style={{color:'#e6ffe6', paddingLeft:'20px', paddingTop:'20px'}}>Agri Mart  </h3> 
             </Row>
                  </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -22,9 +22,9 @@ function AgriMartNavBar() {
                         <Nav.Link href="/aboutus"><h5 style={{color:'#e6ffe6', paddingLeft:'20px', fontSize:'16px'}}>About Us</h5></Nav.Link>
                     </Nav>
                     <Nav>
-                    <Nav.Link href='/login'>Sign in</Nav.Link>
+                    <Nav.Link href='/login'><h5 style={{color:'#e6ffe6', paddingLeft:'50px', fontSize:'16px'}}>Sign in</h5></Nav.Link>
 
-                    <Nav.Link href='/register'>Sign Up</Nav.Link>
+                    <Nav.Link href='/register'><h5 style={{color:'#e6ffe6', paddingLeft:'50px', fontSize:'16px'}}>Sign Up</h5></Nav.Link>
                     </Nav>
                     <Nav>
                         <div class="profile-style">

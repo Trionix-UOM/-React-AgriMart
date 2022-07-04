@@ -2,13 +2,14 @@ import React from "react";
 import AgriMartAdminNavBar from "../../components/AgriMartAdminNavBar/AgriMartAdminNavBar";
 import "./AdminDashboard.css";
 import AgriMartFooter from "../../components/AgriMartFooter/AgriMartFooter";
-import AgriMartAdminSideBar from '../../components/AgriMartSideBar/AgriMartSideBar';
+import AdminSidebarMenu from '../../components/AdminSideBar/AdminSidebarMenu';
 import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Progress } from 'antd';
 import { MDBCol } from "mdbreact";
 import { DataGrid } from '@mui/x-data-grid';
-import AgriMartSideBar from '../../components/AgriMartSideBar/AgriMartSideBar';
+import AdminSideBar from '../../components/AdminSideBar/AdminSideBar';
+
 
 
 const columns = [
@@ -38,7 +39,7 @@ function AdminDashboard() {
         <AgriMartAdminNavBar />
       </div>
       <h2 class="txt-header">Administration Dashboard</h2>
-      <div style={{float:'left', position:'fixed'}}><AgriMartAdminSideBar/></div>
+      <div style={{float:'left', position:'fixed'}}><AdminSideBar/></div>
       <div className="card-container" style={{margin:'0px 100px 0px 210px', position:'relative'}} >
 
       <div style={{ width:'600px',marginTop:'10px'}}>
