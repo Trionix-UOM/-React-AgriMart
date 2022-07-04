@@ -18,14 +18,14 @@ function AgriMartNavBar() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                     <Nav.Link href='/portal'>Farmer Portal</Nav.Link>
-                     <Nav.Link href='/delivery'>Delivery Portal</Nav.Link>
-                        <Nav.Link href="/aboutus">About Us</Nav.Link>
+                     <Nav.Link href='/portal'style={{color:"white"}}>Farmer Portal</Nav.Link>
+                     <Nav.Link href='/delivery' style={{color:"white"}}>Delivery Portal</Nav.Link>
+                        <Nav.Link href="/aboutus" style={{color:"white"}}>About Us</Nav.Link>
                     </Nav>
                     <Nav>
-                    <Nav.Link href='/login'>Sign in</Nav.Link>
+                    <Nav.Link href='/login' style={{color:"white"}}>Sign in</Nav.Link>
 
-                    <Nav.Link href='/register'>Sign Up</Nav.Link>
+                    <Nav.Link href='/register' style={{color:"white"}}>Sign Up</Nav.Link>
                     </Nav>
                     <Nav>
                         <div class="profile-style">
