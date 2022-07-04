@@ -5,46 +5,44 @@ import OrderTable from './OrderTable';
 import AgriMartFooter from '../../components/AgriMartFooter/AgriMartFooter';
 import AgriMartAdminSideBar from '../../components/AgriMartSideBar/AgriMartSideBar';
 import 'antd/dist/antd.css';
-import { Tabs, Popconfirm } from 'antd';
-import { Button, Table } from 'react-bootstrap';
-import axios from 'axios';
+import {  Select, Button } from 'antd';
+import { Table } from 'react-bootstrap';
+import axiosInstance from 'axios';
 import moment from 'moment';
-import { QuestionCircleOutlined } from '@ant-design/icons';
-import DeleteIcon from '@mui/icons-material/Delete';
-import { AiFillDelete } from "react-icons/ai";
-import { AiOutlineEdit  } from "react-icons/ai";
+import { withCurrentUserContext } from '../../context/UserContext';
 
-const { TabPane } = Tabs;
+
+const {Option} = Select;
 
 function AdminOrderManagement() {
+    const [posts, setPosts] = useState([]);
+    const [option, setOption] = useState([]);
 
-    const [data, setData] = useState([]);
 
     useEffect(() => {
-        getOrders();
-    }, []);
+        axiosInstance.get('/orders')
+        .then((res) => {
+          console.log(res.data);
+          setPosts(res.data);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+      });
 
-    let getOrders = () => {
-        try {
 
-            axios({
-                method: 'get',
-                url: 'http://localhost:8080/orderdw'
-            })
-                .then(res => {
-                    console.log('result', res);
-                    console.log('data', res.data);
-                    setData(res.data);
-                    console.log('data-array', data)
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        }
-        catch (err) {
-            console.log(err);
-        }
-    };
+      const handleOption =  (value) => {
+            if(value === 'denied' || value === 'approved'){
+            
+            }
+            else{
+                // Filtering part
+            }
+      }
+
+
+
+   
 
     return (
         <div>
@@ -57,14 +55,23 @@ function AdminOrderManagement() {
                 <h2 class="txt-header">Order Management</h2>
             </div>
             <div>
+                <Select 
+                style={{width:'200px', float:'right', marginRight:'40px',borderRadius:'8px' }}
+                placeholder='Confirmation Status'
+                onChange={handleOption()}>
+                    <Option key='1' value='pending'>Pending</Option>
+                    <Option key='2'value='denied'>Denied</Option>
+                    <Option key='3' value='approved'>Approved</Option>
+
+                </Select>
+            <div style={{height:'80px'}}></div>
             <div style={{float:'left', position:'fixed'}}><AgriMartAdminSideBar/></div>
                 <div className="card-container" style={{margin:'0px 100px 0px 210px', position:'relative'}} >
-                    <Tabs type="card">
-                        <TabPane tab="User ID" key="1">
-                            <div class="table-style">
+              
+                            <div >
                                 <OrderTable/>
-{/* 
-                                <Table striped bordered hover>
+
+                                {/* <Table striped bordered hover>
                                     <thead>
                                         <tr>
                                             <th>Order ID</th>
@@ -72,38 +79,35 @@ function AdminOrderManagement() {
                                             <th>Product Name</th> 
                                             <th>Quantity</th>
                                             <th>Total Price</th>
-                                            <th>Distribution</th>
                                             <th>Delivery Status</th>
-                                            <th>Action</th>
+                                            <th>Confirmation</th>
+                                     
                                         </tr>
-                                        <tr>
-                                        <td>0001</td>
-                                        <td>22.06.2022</td>
-                                        <td>Carrot</td>
-                                        <td>10KG</td>
-                                        <td>RS.8500</td>
-                                        <td>dd</td>
-                                        <td>Pending</td>
-                                        <td > 
-                                            <Popconfirm title="Are you sure？" okText="Yes" cancelText="No"><AiFillDelete className='deleteIcon'/>
-  </Popconfirm> <AiOutlineEdit /></td>
-                                        </tr>
+                              
                                     </thead>
                                     <tbody>
                                     {
-                                            data.map((item) => (
-                                                <tr key={item.id}>
-                                                    <td>{(item.orderId ?? "").substring(item.orderId.length - 4).toUpperCase()}</td>
-                                                    {/* <td>{(item.orderId ?? "").substring(0, 4).toUpperCase()}</td> */}
-                                                    
+                                           posts.map((post) => (
+                                            <tr key={post?.productTitle}>
+                                                <td>{moment(post?.orderDateTime).format('LLLL')}</td>
+                                                <td>{post?.productTitle}</td>
+                                                <td>{post?.productTitle}</td>
+                                                <td>{post?.productTitle}</td>
+                                                <td>{post?.productTitle}</td>
+                                                <td>{post?.productTitle}</td>
+                                                <td><Button type='primary' style={{height:'30px', width:'80px', backgroundColor:'black'}}>Approve</Button></td>
+                                             
+
+                                            </tr>
+                                        ))
+                                    }
+                                     </tbody>
+                                     </Table> */}
 
                             </div>
-                        </TabPane>
-                        
-                        
-                        
-                    </Tabs>
+                   
                 </div>
+             
             </div>
 
 
@@ -118,4 +122,4 @@ function AdminOrderManagement() {
     );
 }
 
-export default AdminOrderManagement;
+export default withCurrentUserContext(AdminOrderManagement);

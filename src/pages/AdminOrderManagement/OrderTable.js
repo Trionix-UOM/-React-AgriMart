@@ -1,27 +1,47 @@
 import React, { useState, useEffect } from 'react';
-import {Table} from 'antd';
+import {mapOrderResponsesToTable} from './OrderServices';
+import { axiosInstance } from 'axios';
+import {Table, Button} from 'antd';
 
 function OrderTable()
 {
-
-    const data=[
-{
-    key:'1',
-    orderID: '00001',
-    orderDate: '12-04-2022',
-    productName:'Carrot',
-    quantity:'3',
-    price:'400',
-    confirmation: 'Approved',
-    deliveryStatus: 'True',
+  const [orders, setOrders] = useState([]);
+  const fetchedOrders = [];
 
 
-}
+  const loadOrders = async () => {
+ 
+      fetchedOrders = await getAllOrders();
+      setOrders(fetchedOrders);
+      orders =  await mapOrderResponsesToTable(fetchedOrders);
+    }
+
+  
+
+  
+  const getAllOrders = async () => {
+    axiosInstance.get('/order')
+    .then((res) => {
+      console.log(res.data);
+      setOrders(res.data);
+      const fetchedOrders = (res.data);
+      orders =  mapOrderResponsesToTable(fetchedOrders);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  }
+
+
+  useEffect(() => {
+
+    loadOrders();
+
+  });
 
 
 
 
-    ];
 
 const columns = [
     {
@@ -49,22 +69,39 @@ const columns = [
         dataIndex: 'price',
         key: 'price',
       },
-      {
-        title:'Confirmation Status',
-        dataIndex: 'confirmation',
-        key: 'confirmation',
-      },
+    
       {
         title:'Delivery Status',
         key: 'deliveryStatus',
         dataIndex: 'deliveryStatus',
       },
+      {
+        title:'Confirmation',
+        dataIndex: 'confirmation',
+        key: 'confirmation',
 
+        render: () => (
+          <>
+          <Button type='primary'
+          style={{width: '80px', backgroundColor:'blue'}}
+          onClick={() => handleAction()}>{'Approve'}</Button>
+          <Button type='danger'
+          style={{width: '80px', backgroundColor:'blue'}}
+          onClick={() => handleAction()}>{'Decline'}</Button>
+          </>
+        ),
+      },
 
 ];
+
+const handleAction = async () => {
+  ///Perform handling action
+}
+
+
 return(
 <>
-<Table columns={columns} dataSource={data} />
+<Table columns={columns} dataSource={orders} />
 </>
 
 
