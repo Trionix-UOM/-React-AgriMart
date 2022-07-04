@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AgriMartAdminNavBar from '../../components/AgriMartAdminNavBar/AgriMartAdminNavBar';
 import './AdminOrderManagement.css';
+import OrderTable from './OrderTable';
 import AgriMartFooter from '../../components/AgriMartFooter/AgriMartFooter';
 import AgriMartAdminSideBar from '../../components/AgriMartSideBar/AgriMartSideBar';
 import 'antd/dist/antd.css';
@@ -61,7 +62,8 @@ function AdminOrderManagement() {
                     <Tabs type="card">
                         <TabPane tab="User ID" key="1">
                             <div class="table-style">
-
+                                <OrderTable/>
+{/* 
                                 <Table striped bordered hover>
                                     <thead>
                                         <tr>
@@ -82,7 +84,8 @@ function AdminOrderManagement() {
                                         <td>RS.8500</td>
                                         <td>dd</td>
                                         <td>Pending</td>
-                                        <td > <Popconfirm title="Are you sure？" okText="Yes" cancelText="No"><AiFillDelete className='deleteIcon'/>
+                                        <td > 
+                                            <Popconfirm title="Are you sure？" okText="Yes" cancelText="No"><AiFillDelete className='deleteIcon'/>
   </Popconfirm> <AiOutlineEdit /></td>
                                         </tr>
                                     </thead>
@@ -92,18 +95,7 @@ function AdminOrderManagement() {
                                                 <tr key={item.id}>
                                                     <td>{(item.orderId ?? "").substring(item.orderId.length - 4).toUpperCase()}</td>
                                                     {/* <td>{(item.orderId ?? "").substring(0, 4).toUpperCase()}</td> */}
-                                                    <td>{moment(item.orderDateTime).format('LLLL')}</td>
-                                                    <td>{item.productTitle}</td>
-                                                    <td>{item.quantity}</td>
-                                                    <td>{item.amount}</td>
-                                                    <button className='btn btn-primary form-control' style={{color:"black", backgroundColor:"#51bbfc", borderColor:"#51bbfc"}}  type="submit">RTS</button>
-                                                    {/* <td>{item.price}</td> */}
-
-                                                </tr>
-                                            ))
-                                        }
-                                    </tbody>
-                                </Table>
+                                                    
 
                             </div>
                         </TabPane>
