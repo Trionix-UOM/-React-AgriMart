@@ -6,7 +6,7 @@ import { BiCog } from "react-icons/bi";
 import { AiOutlineGift, AiTwotoneBank } from "react-icons/ai";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import AdminSidebarMenu from "./AdminSidebarMenu";
+import SidebarMenu from "./SidebarMenu";
 const routes = [
   {
     path: "/usermanagement",
@@ -31,7 +31,7 @@ const routes = [
  
 ];
 
-const AdminSideBar = ({ children }) => {
+const AgriMartSideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const inputAnimation = {
@@ -112,7 +112,7 @@ const AdminSideBar = ({ children }) => {
             {routes.map((route, index) => {
               if (route.subRoutes) {
                 return (
-                  <AdminSidebarMenu
+                  <SidebarMenu
                     setIsOpen={setIsOpen}
                     route={route}
                     showAnimation={showAnimation}
@@ -155,5 +155,5 @@ const AdminSideBar = ({ children }) => {
   );
 };
 
-export default AdminSideBar;
+export default AgriMartSideBar;
 
