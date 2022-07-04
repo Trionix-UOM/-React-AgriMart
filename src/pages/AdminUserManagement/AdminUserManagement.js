@@ -5,7 +5,7 @@ import AgriMartAdminNavBar from '../../components/AgriMartAdminNavBar/AgriMartAd
 import AgriMartFooter from '../../components/AgriMartFooter/AgriMartFooter';
 import AgriMartAdminSideBar from '../../components/AgriMartSideBar/AgriMartSideBar';
 import { Table } from "react-bootstrap";
-import { Tabs, Popconfirm } from 'antd';
+import { Tabs, Button } from 'antd';
 import moment from 'moment';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -15,6 +15,10 @@ import { AiOutlineEdit  } from "react-icons/ai";
 const { TabPane } = Tabs;
 function AdminUserManagement() {
     const [data, setData] = useState([]);
+
+    const handleRestriction = () =>{
+        //Handling seller restriction
+    }
     
     return (
         <div>
@@ -29,7 +33,7 @@ function AdminUserManagement() {
             <div style={{float:'left', position:'fixed'}}><AgriMartAdminSideBar/></div>
                 <div className="card-container" style={{margin:'0px 100px 0px 210px', position:'relative'}} >
                     <Tabs type="card">
-                        <TabPane tab="Shopper" key="1">
+                        <TabPane tab="Customer" key="1">
                             <div class="table-style">
 
                                 <Table striped bordered hover>
@@ -39,27 +43,14 @@ function AdminUserManagement() {
                                             <th>shopper Name</th> 
                                             <th>Email Address</th>
                                             <th>Contact Number</th>
-                                            <th>Action</th>
+                                 
                                         </tr>
                                         <tr>
                                           <td>0001</td>
                                           <td>S.T.Gunatilake</td>
                                           <td>samangunatilake@gmail.com</td>
                                           <td>072 345 6789</td>
-                                          <td><Popconfirm
-                        title="Are you sure？"
-                        icon={
-                          <QuestionCircleOutlined
-                            style={{
-                              color: 'red',
-                            }}
-                            // onOk={() => removeItem(item.id)}
-                          />
-                        }
-                      ><button className='btn ms-2' >
-                         <DeleteIcon className='deleteicon'/>
-                       </button>
-                      </Popconfirm></td>
+                                         
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -105,33 +96,19 @@ function AdminUserManagement() {
                                           <td>075 234 9876</td>
                                           <td>0003</td>
                                           <td>Cabbage</td>
-                                          <td><AiFillDelete/>  <AiOutlineEdit /></td>
+                                          <td><Button style={{width:'80px', backgroundColor:'red', fontWeight:'bold'}}
+                                          onClick={handleRestriction()}
+                                          > Restrict </Button ></td>
                                         </tr>
                                     </thead>
-                                    <tbody>
-
-
-                                        {/* {
-                                            data.map((item) => ( 
-                                                <tr key={(item.id)}> 
-                                                    <td>{(item.orderId ?? "").substring(0, 4).toUpperCase()}</td>
-                                                    <td>{item.orderDateTime}</td>
-                                                    <td>{item.productTitle}</td>
-                                                    <td>{item.quantity}</td>
-                                                    <td>{item.amount}</td>
-                                                </tr>
-                                            ))
-                                        } */}
-
-
-                                    </tbody>
+                                   
                                 </Table>
 
                             </div>
 
                         </TabPane>
 
-                        <TabPane tab="Delivery Person" key="3">
+                        {/* <TabPane tab="Delivery Person" key="3">
                             <div class="table-style">
 
                                 <Table striped bordered hover>
@@ -167,14 +144,14 @@ function AdminUserManagement() {
                                             ))
                                         } */}
 
-
+{/* 
                                     </tbody>
                                 </Table>
 
                             </div>
 
-                        </TabPane>
-                        
+                        </TabPane> */}
+                         
                     </Tabs>
                 </div>
         <div>
