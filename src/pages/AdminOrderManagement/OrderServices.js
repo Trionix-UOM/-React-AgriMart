@@ -8,14 +8,16 @@ export const mapOrderResponsesToTable = async (fetchedOrders) => {
         ({
             key: order?.productTitle,
             orderID: order?.productTitle,
-            orderDate: order?.productTitle,
-            productName: order?.productTitle,
+            orderDateTime: order?.orderDateTime,
+            productTitle: order?.productTitle,
             quantity: order?.productTitle,
-            price: order?.productTitle,
+            amount: order?.amount,
             confirmation: order?.productTitle,
-            deliveryStatus: order?.productTitle,
+       
         })
                 }
     })();
     return orders;
 }
+
+

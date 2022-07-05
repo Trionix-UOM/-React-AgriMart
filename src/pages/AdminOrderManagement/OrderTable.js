@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {mapOrderResponsesToTable} from './OrderServices';
-import { axiosInstance } from 'axios';
-import {Table, Button} from 'antd';
+import { axiosInstance } from "../../services";
+import {Table, Button, Space} from 'antd';
 
 function OrderTable()
 {
@@ -13,6 +13,7 @@ function OrderTable()
  
       fetchedOrders = await getAllOrders();
       setOrders(fetchedOrders);
+      console.log("All orders: ", orders)
       orders =  await mapOrderResponsesToTable(fetchedOrders);
     }
 
@@ -20,7 +21,7 @@ function OrderTable()
 
   
   const getAllOrders = async () => {
-    axiosInstance.get('/order')
+    axiosInstance.get('/getorder')
     .then((res) => {
       console.log(res.data);
       setOrders(res.data);
@@ -34,7 +35,6 @@ function OrderTable()
 
 
   useEffect(() => {
-
     loadOrders();
 
   });
@@ -50,13 +50,13 @@ const columns = [
       },
       {
         title: 'Order Date',
-        dataIndex: 'orderDate',
-        key: 'orderDate',
+        dataIndex: 'orderDateTime',
+        key: 'orderDateTime',
       },
       {
         title: 'Product Name',
-        dataIndex: 'productName',
-        key: 'productName',
+        dataIndex: 'productTitle',
+        key: 'productTitle',
       },
       {
         title: 'Quantity',
@@ -65,15 +65,11 @@ const columns = [
       },
       {
         title: 'Total Price',
-        dataIndex: 'price',
-        key: 'price',
+        dataIndex: 'amount',
+        key: 'amount',
       },
     
-      {
-        title:'Delivery Status',
-        key: 'deliveryStatus',
-        dataIndex: 'deliveryStatus',
-      },
+   
       {
         title:'Confirmation',
         dataIndex: 'confirmation',
@@ -81,12 +77,14 @@ const columns = [
 
         render: () => (
           <>
+          <Space>
           <Button type='primary'
           style={{width: '70px', backgroundColor:'blue'}}
           onClick={() => handleAction()}>{'Approve'}</Button>
           <Button type='danger'
           style={{width: '70px', backgroundColor:'red'}}
           onClick={() => handleAction()}>{'Decline'}</Button>
+          </Space>
           </>
         ),
       },
