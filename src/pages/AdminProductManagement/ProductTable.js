@@ -37,7 +37,7 @@ function ProductTable()
   useEffect(() => {
     loadProducts();
 
-  });
+  },[]);
 
 
 
@@ -90,12 +90,12 @@ const columns = [
    
     
 
-        render: () => (
+        render: (record) => (
           <>
  
           <Button type='danger'
           style={{width: '70px', backgroundColor:'red'}}
-          onClick={() => handleHide()}>{'Hide'}</Button>
+          onClick={() => handleHide({ProductID: record?._id})}>{'Hide'}</Button>
   
           </>
         ),
@@ -105,7 +105,8 @@ const columns = [
 
 ];
 
-const handleHide = async () => {
+const handleHide = async ({ProductID}) => {
+  console.log('product ID',ProductID);
   ///Perform handling hide
 }
 

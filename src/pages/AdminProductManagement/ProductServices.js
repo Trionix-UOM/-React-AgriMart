@@ -7,7 +7,8 @@ export const mapProductResponsesToTable = async (fetchedProducts) => {
             products.push
         ({
             key: product?.productTitle,
-            orderID: product?.productTitle,
+            
+            productID: product?.productID,
             category: product?.orderDateTime,
             productTitle: product?.productTitle,
             quantity: product?.productTitle,
