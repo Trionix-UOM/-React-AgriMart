@@ -21,3 +21,23 @@ export const mapOrderResponsesToTable = async (fetchedOrders) => {
 }
 
 
+
+export const mapTopSellingItemsToTable = async (fetchedOrders) => {
+    const orders = [];
+
+    await (async () => {
+        for(const order of fetchedOrders){
+            orders.push
+        ({
+            key: order?.productTitle,
+            productTitle: order?.productTitle,
+            quantity: order?.quantity,
+            amount: order?.amount,
+       
+        })
+                }
+    })();
+    return orders;
+}
+
+
