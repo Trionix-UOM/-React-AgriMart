@@ -4,6 +4,7 @@ import AgriMartAdminNavBar from '../../components/AgriMartAdminNavBar/AgriMartAd
  import './AdminUserManagement.css';
 import AgriMartFooter from '../../components/AgriMartFooter/AgriMartFooter';
 import AgriMartAdminSideBar from '../../components/AgriMartSideBar/AgriMartSideBar';
+import CustomerTable from './CustomerTable';
 import { Table } from "react-bootstrap";
 import { Tabs, Button } from 'antd';
 import moment from 'moment';
@@ -36,42 +37,7 @@ function AdminUserManagement() {
                         <TabPane tab="Customer" key="1">
                             <div class="table-style">
 
-                                <Table striped bordered hover>
-                                    <thead>
-                                        <tr>
-                                            <th>Shopper ID</th>
-                                            <th>shopper Name</th> 
-                                            <th>Email Address</th>
-                                            <th>Contact Number</th>
-                                 
-                                        </tr>
-                                        <tr>
-                                          <td>0001</td>
-                                          <td>S.T.Gunatilake</td>
-                                          <td>samangunatilake@gmail.com</td>
-                                          <td>072 345 6789</td>
-                                         
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    {
-                                            data.map((item) => (
-                                                <tr key={item.id}>
-                                                    <td>{(item.orderId ?? "").substring(item.orderId.length - 4).toUpperCase()}</td>
-                                                    {/* <td>{(item.orderId ?? "").substring(0, 4).toUpperCase()}</td> */}
-                                                    <td>{moment(item.orderDateTime).format('LLLL')}</td>
-                                                    <td>{item.productTitle}</td>
-                                                    <td>{item.quantity}</td>
-                                                    <td>{item.amount}</td>
-                                                    <button className='btn btn-primary form-control' style={{color:"black", backgroundColor:"#51bbfc", borderColor:"#51bbfc"}}  type="submit">RTS</button>
-                                                    {/* <td>{item.price}</td> */}
-
-                                                </tr>
-                                            ))
-                                        }
-                                    </tbody>
-                                </Table>
-
+                             <CustomerTable/>
                             </div>
                         </TabPane>
                         <TabPane tab="Seller" key="2">
