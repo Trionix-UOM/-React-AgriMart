@@ -3,6 +3,7 @@ import AgriMartAdminNavBar from "../../components/AgriMartAdminNavBar/AgriMartAd
 import "./AdminProductManagement.css";
 import AgriMartFooter from "../../components/AgriMartFooter/AgriMartFooter";
 import AgriMartAdminSideBar from '../../components/AgriMartSideBar/AgriMartSideBar';
+import ProductTable from './ProductTable';
 import { Table } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -93,45 +94,7 @@ const handleHide = () => {
                 <div className="card-container" style={{margin:'40px 100px 0px 210px', position:'relative'}} >
                   
 
-                                <Table striped bordered hover>
-                                    <thead>
-                                        <tr>
-                                            <th>Product ID</th>
-                                            <th>Product Name</th> 
-                                            <th>Quantity</th>
-                                            <th>Seller</th>
-                                            <th>Availability</th>
-                                            <th>Total Price</th>
-                                            <th>Action</th>
-                                        </tr>
-                                        <tr>
-                                          <td>0001</td>
-                                          <td>Carrot</td>
-                                          <td>25KG</td>
-                                          <td>M.T.Silva</td>
-                                          <td>True</td>
-                                          <td>Rs.9500</td>
-                                          <td><Popconfirm
-                        title="Are you sure？"
-                        icon={
-                          <QuestionCircleOutlined
-                            style={{
-                              color: 'red',
-                            }}
-                            // onOk={() => HideItem(item.id)}
-                          />
-                        }
-                      >
-                        <Button style={{backgroundColor:'red', width:'80px', fontWeight:'bold'}}
-                        onClick={handleHide()}
-                        >
-                         Hide
-                       </Button>
-                      </Popconfirm></td>
-                                        </tr>
-                                    </thead>
-                                   
-                                </Table>
+                             <ProductTable/>
 
                 </div>
 
