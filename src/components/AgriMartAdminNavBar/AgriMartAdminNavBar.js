@@ -14,6 +14,7 @@ function AgriMartAdminNavBar() {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                      <Nav.Link href='/portal'>Admin Portal</Nav.Link>
+                     <Nav.Link href='/portal'><h5 style={{color:'#ff0000', paddingLeft:'900px', fontSize:'16px'}}>Sign Out</h5></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

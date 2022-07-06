@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import {mapTopSellingItemsToTable} from '../AdminOrderManagement/OrderServices';
+import {mapRecentOrdersToTable} from '../AdminOrderManagement/OrderServices';
 import { axiosInstance } from "../../services";
-import {Table, Button, Space} from 'antd';
+import {Table} from 'antd';
 
-function TopSellingTable()
+function RecentOrderTable()
 {
   const [orders, setOrders] = useState([]);
   const fetchedOrders = [];
@@ -14,19 +14,19 @@ function TopSellingTable()
       fetchedOrders = await getAllOrders();
       setOrders(fetchedOrders);
       console.log("All orders: ", orders)
-      orders =  await mapTopSellingItemsToTable(fetchedOrders);
+      orders =  await mapRecentOrdersToTable(fetchedOrders);
     }
 
   
 
   
   const getAllOrders = async () => {
-    axiosInstance.get('/topTen')
+    axiosInstance.get('/getorder')
     .then((res) => {
       console.log(res.data);
       setOrders(res.data);
       const fetchedOrders = (res.data);
-      orders =  mapTopSellingItemsToTable(fetchedOrders);
+      orders =  mapRecentOrdersToTable(fetchedOrders);
     })
     .catch((err) => {
       console.error(err);
@@ -43,6 +43,9 @@ function TopSellingTable()
 
 
 const columns = [
+
+
+
     {
         title: 'Product Name',
         dataIndex: 'productTitle',
@@ -51,13 +54,13 @@ const columns = [
 
       {
         title: 'Quantity',
-        dataIndex: 'soldQuantity',
-        key: 'soldQuantity',
+        dataIndex: 'quantity',
+        key: 'quantity',
       },
       {
         title: 'Total Amount',
-        dataIndex: 'totalAmount',
-        key: 'totalAmount',
+        dataIndex: 'amount',
+        key: 'amount',
       },
     
    
@@ -79,4 +82,4 @@ return(
 
 }
 
-export default TopSellingTable;
+export default RecentOrderTable;

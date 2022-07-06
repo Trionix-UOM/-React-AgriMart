@@ -5,6 +5,7 @@ import './AgriMartNavBar.css';
 import logo from '../../resources/images/logo.png'
 import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Row, Col } from 'antd';
+
 function AgriMartNavBar() {
     return (
         <Navbar class="nav-styles" collapseOnSelect fixed="top" expand="sm" style={{backgroundColor:'#001a00'}}>
