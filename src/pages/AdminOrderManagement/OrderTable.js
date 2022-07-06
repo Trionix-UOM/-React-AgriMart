@@ -3,11 +3,13 @@ import {mapOrderResponsesToTable} from './OrderServices';
 import { axiosInstance } from "../../services";
 import {Table, Button, Space} from 'antd';
 import { async } from '@firebase/util';
+import { message } from 'antd';
 
 function OrderTable()
 {
   const [orders, setOrders] = useState([]);
   const [mappedOrders, setMappedOrders] = useState([]);
+  
 
 
   const loadOrders = async () => {
@@ -42,10 +44,6 @@ function OrderTable()
     loadOrders();
 
   },[]);
-
-
-
-
 const columns = [
     {
         title: 'Order ID',
@@ -97,15 +95,18 @@ const columns = [
 
 const handleActionApprove = async ({OrderID}) => {
   console.log('order ID',OrderID);
+  message.success('Successfully Approved!');
   ///Perform handling action
   axiosInstance.put('/orderstate',
   {
     orderId:OrderID,
     response:"confirm"
+    
   }
   )
     .then(res => {
       console.log(res.data);
+
       
   })
   .catch(err=>{
@@ -115,6 +116,7 @@ const handleActionApprove = async ({OrderID}) => {
 
 const handleActionDecline = async ({OrderID}) => {
   console.log('order ID',OrderID);
+  message.warning('Declined!');
   ///Perform handling action
   axiosInstance.put('/orderstate',
   {
