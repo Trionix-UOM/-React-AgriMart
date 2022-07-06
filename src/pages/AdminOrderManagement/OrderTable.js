@@ -2,19 +2,25 @@ import React, { useState, useEffect } from 'react';
 import {mapOrderResponsesToTable} from './OrderServices';
 import { axiosInstance } from "../../services";
 import {Table, Button, Space} from 'antd';
+import { async } from '@firebase/util';
 
 function OrderTable()
 {
   const [orders, setOrders] = useState([]);
-  const fetchedOrders = [];
+  const [mappedOrders, setMappedOrders] = useState([]);
 
 
   const loadOrders = async () => {
- 
-      fetchedOrders = await getAllOrders();
-      setOrders(fetchedOrders);
-      console.log("All orders: ", orders)
-      orders =  await mapOrderResponsesToTable(fetchedOrders);
+      await getAllOrders();
+      console.log("All orders: ", orders);
+    }
+
+    const newFun=async(res)=>{
+        console.log('new',res.data);
+        const mappedOrders =  await mapOrderResponsesToTable(res.data);
+        console.log('mapped',mappedOrders);
+        setMappedOrders(mappedOrders);
+    
     }
 
   
@@ -23,10 +29,8 @@ function OrderTable()
   const getAllOrders = async () => {
     axiosInstance.get('/getorder')
     .then((res) => {
-      console.log(res.data);
-      setOrders(res.data);
-      const fetchedOrders = (res.data);
-      orders =  mapOrderResponsesToTable(fetchedOrders);
+      newFun(res);
+
     })
     .catch((err) => {
       console.error(err);
@@ -37,7 +41,7 @@ function OrderTable()
   useEffect(() => {
     loadOrders();
 
-  });
+  },[]);
 
 
 
@@ -75,15 +79,15 @@ const columns = [
         dataIndex: 'confirmation',
         key: 'confirmation',
 
-        render: () => (
+        render: (index,record) => (
           <>
           <Space>
           <Button type='primary'
           style={{width: '70px', backgroundColor:'blue'}}
-          onClick={() => handleAction()}>{'Approve'}</Button>
+          onClick={() => handleActionApprove({OrderID: record?.orderID})}>{'Approve'}</Button>
           <Button type='danger'
           style={{width: '70px', backgroundColor:'red'}}
-          onClick={() => handleAction()}>{'Decline'}</Button>
+          onClick={() => handleActionDecline({OrderID: record?.orderID})}>{'Decline'}</Button>
           </Space>
           </>
         ),
@@ -91,14 +95,46 @@ const columns = [
 
 ];
 
-const handleAction = async () => {
+const handleActionApprove = async ({OrderID}) => {
+  console.log('order ID',OrderID);
   ///Perform handling action
+  axiosInstance.put('/orderstate',
+  {
+    orderId:OrderID,
+    response:"confirm"
+  }
+  )
+    .then(res => {
+      console.log(res.data);
+      
+  })
+  .catch(err=>{
+    console.error(err)
+  })
+}
+
+const handleActionDecline = async ({OrderID}) => {
+  console.log('order ID',OrderID);
+  ///Perform handling action
+  axiosInstance.put('/orderstate',
+  {
+    orderId:OrderID,
+    response:"reject"
+  }
+  )
+    .then(res => {
+      console.log(res.data);
+     
+  })
+  .catch(err=>{
+    console.error(err)
+  })
 }
 
 
 return(
 <>
-<Table columns={columns} dataSource={orders} />
+<Table columns={columns} dataSource={mappedOrders} />
 </>
 
 

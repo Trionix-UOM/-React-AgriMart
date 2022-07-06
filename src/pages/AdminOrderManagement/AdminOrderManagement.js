@@ -12,41 +12,41 @@ import { withCurrentUserContext } from '../../context/UserContext';
 
 
 function AdminOrderManagement() {
-    const [orders, setOrders] = useState([]);
-    const [fetchedOrders, setFetchedOrders] = useState([]);
-    const [count, setCount] = useState(0);
+    // const [orders, setOrders] = useState([]);
+    // const [fetchedOrders, setFetchedOrders] = useState([]);
+    // const [count, setCount] = useState(0);
 
   
   
-    const loadOrders = async () => {
+    // const loadOrders = async () => {
    
-        fetchedOrders = await getAllOrders();
-        setOrders(fetchedOrders);
-        setCount(fetchedOrders.length);
-        console.log("order count: ",count)
+    //     fetchedOrders = await getAllOrders();
+    //     setOrders(fetchedOrders);
+    //     setCount(fetchedOrders.length);
+    //     console.log("order count: ",count)
      
-      }
+    //   }
   
     
   
     
-    const getAllOrders = async () => {
-      axiosInstance.get('/getorder')
-      .then((res) => {
-        console.log(res.data);
-        setOrders(res.data);
-        setFetchedOrders(orders);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-    }
+    // const getAllOrders = async () => {
+    //   axiosInstance.get('/getorder')
+    //   .then((res) => {
+    //     console.log(res.data);
+    //     setOrders(res.data);
+    //     setFetchedOrders(orders);
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
+    // }
   
   
-    useEffect(() => {
-      loadOrders();
+    // useEffect(() => {
+    //   loadOrders();
   
-    });
+    // });
   
 
 
@@ -63,7 +63,7 @@ function AdminOrderManagement() {
                 <h2 class="txt-header">Order Management</h2>
             </div>
             <div>
-              <h3 style={{color:'black', fontSize:'17px', fontWeight:'bold', textAlign:'right', paddingRight:'110px'}}>Order Count: {count} </h3>
+              <h3 style={{color:'black', fontSize:'17px', fontWeight:'bold', textAlign:'right', paddingRight:'110px'}}>Order Count:</h3>
             <div style={{height:'80px'}}></div>
             <div style={{float:'left', position:'fixed'}}><AgriMartAdminSideBar/></div>
                 <div className="card-container" style={{margin:'0px 100px 0px 210px', position:'relative'}} >
