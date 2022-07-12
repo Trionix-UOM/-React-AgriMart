@@ -45,13 +45,13 @@ function CustomerTable()
 const columns = [
     {
         title: 'Customer ID',
-        dataIndex: 'customerID',
-        key: 'customerID',
+        dataIndex: 'id',
+        key: 'id',
       },
       {
         title: 'Customer Name',
-        dataIndex: 'customerName',
-        key: 'customerName',
+        dataIndex: 'fullName',
+        key: 'fullName',
       },
       {
         title: 'Email',
@@ -60,14 +60,10 @@ const columns = [
       },
       {
         title: 'Contact',
-        dataIndex: 'contact',
-        key: 'contact',
+        dataIndex: 'phoneNo',
+        key: 'phoneNo',
       },
-      {
-        title: 'Address',
-        dataIndex: 'address',
-        key: 'address',
-      },
+
     
    
      

@@ -88,4 +88,4 @@ function AdminOrderManagement() {
     );
 }
 
-export default withCurrentUserContext(AdminOrderManagement);
+export default (AdminOrderManagement);

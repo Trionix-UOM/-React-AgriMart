@@ -6,12 +6,12 @@ export const mapCustomerResponsesToTable = async (fetchedCustomers) => {
         for(const customer of fetchedCustomers){
             customers.push
         ({
-            key: customer?.firstName,
-            customerID: customer?.firstName,
-            customerName: customer?.firstName ,
+            key: customer?.email,
+            id: customer?.id,
+            fullName: customer?.fullName ,
             email: customer?.email,
-            contact: customer?.phoneNumber,
-            address: customer?.address,
+            contact: customer?.phoneNo,
+
        
         })
                 }

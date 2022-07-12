@@ -9,6 +9,7 @@ function OrderTable()
 {
   const [orders, setOrders] = useState([]);
   const [mappedOrders, setMappedOrders] = useState([]);
+  const [show, setShow] = useState(true);
   
 
 
@@ -112,6 +113,7 @@ const handleActionApprove = async ({OrderID}) => {
   .catch(err=>{
     console.error(err)
   })
+  {}
 }
 
 const handleActionDecline = async ({OrderID}) => {
