@@ -13,7 +13,7 @@ function ProductTable()
  
     fetchedProducts = await getAllOrders();
     setProducts(fetchedProducts);
-      console.log("All products: ", products)
+      console.log("All products: ", fetchedProducts)
       products =  await mapProductResponsesToTable(fetchedProducts);
     }
 
@@ -45,8 +45,8 @@ function ProductTable()
 const columns = [
     {
         title: 'Product ID',
-        dataIndex: 'productID',
-        key: 'productID',
+        dataIndex: 'productId',
+        key: 'productId',
       },
 
       {
@@ -93,9 +93,9 @@ const columns = [
         render: (record) => (
           <>
  
-          <Button type='danger'
+ <Button type='danger'
           style={{width: '70px', backgroundColor:'red'}}
-          onClick={() => handleHide({ProductID: record?._id})}>{'Hide'}</Button>
+          onClick={() => handleHide({ProductID: record?.productId})}>{'Hide'}</Button>
   
           </>
         ),

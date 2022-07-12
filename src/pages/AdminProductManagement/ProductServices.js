@@ -1,6 +1,7 @@
 
 export const mapProductResponsesToTable = async (fetchedProducts) => {
     const products = [];
+    console.log("fetch", fetchedProducts);
 
     await (async () => {
         for(const product of fetchedProducts){
@@ -8,15 +9,18 @@ export const mapProductResponsesToTable = async (fetchedProducts) => {
         ({
             key: product?.productTitle,
             
-            productID: product?.productID,
+            productId: product?.productId,
             category: product?.orderDateTime,
             productTitle: product?.productTitle,
             quantity: product?.productTitle,
             seller: product?.seller,
             price: product?.price,
             available: product?.available,
+
+            
        
         })
+        
                 }
     })();
     return products;
